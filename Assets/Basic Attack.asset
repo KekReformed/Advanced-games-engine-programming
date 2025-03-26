@@ -14,4 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   attackInterval: 1
-  attackCooldown: -0.001691893
