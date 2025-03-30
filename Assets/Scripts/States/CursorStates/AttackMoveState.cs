@@ -1,33 +1,35 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace States.CursorStates
 {
-    public class MovementState : ICursorState
+    public class AttackMoveState : ICursorState
     {
+        InputAction _attackStateInput;
+        
         public void Setup(PlayerManager manager)
         {
-            return;
+            _attackStateInput = manager.Input.actions.FindAction("Enter AttackMove State");
         }
         
         public bool CheckStateConditions(PlayerManager manager)
         {
-            return manager.MoveInput.triggered && manager.CurrentState.GetType() == typeof(UnitStates.MovementState);
+            return _attackStateInput.triggered;
         }
-        
         public void EnterState(PlayerManager manager)
         {
-            Debug.Log("Movement state entered");
-            PlayerCursor.Instance.image.color = Color.white;
+            Debug.Log("Attack move state entered!");
+            PlayerCursor.Instance.image.color = Color.red;
         }
         
         public void UpdateState(PlayerManager manager)
-        {            
-            if(!manager.MoveInput.triggered) return;
-            
+        {
+            if(!manager.CommandInput.triggered) return;
+                
             foreach (Unit unit in manager.selectedUnits)
             {
                 unit.MoveTarget = manager.HoveringOver.point;
-                unit.SetState(new UnitStates.MovementState());
+                unit.SetState(new UnitStates.AttackMoveState());
             }
         }
         
@@ -37,3 +39,4 @@ namespace States.CursorStates
         }
     }
 }
+

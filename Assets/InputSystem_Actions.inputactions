@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Enter Attack State",
+                    "name": "Enter AttackMove State",
                     "type": "Button",
                     "id": "e38e9b9b-0c48-4f98-9849-e3324c31d3c8",
                     "expectedControlType": "",
@@ -215,7 +215,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Enter Attack State",
+                    "action": "Enter AttackMove State",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

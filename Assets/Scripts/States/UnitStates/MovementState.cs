@@ -7,7 +7,7 @@
             return;
         }
         
-        public void UpdateState(Unit unit)
+        public virtual void UpdateState(Unit unit)
         {
             unit.movementBehaviour.Move(unit.gameObject, unit.MoveTarget);
         }

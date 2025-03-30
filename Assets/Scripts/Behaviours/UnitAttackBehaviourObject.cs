@@ -6,7 +6,6 @@ public abstract class UnitAttackBehaviourObject : ScriptableObject , IUnitAttack
     public float range;
     public float attackInterval;
     public float AttackCooldown { get; set; }
-
     float _lastCalledTime;
 
     public void ResetBehaviour()
@@ -31,8 +30,8 @@ public abstract class UnitAttackBehaviourObject : ScriptableObject , IUnitAttack
         AttackCooldown = attackInterval;
     }
 
-    public bool InRange(Unit unit)
+    public bool InRange(Unit unit, GameObject target)
     {
-        return Vector3.Distance(unit.CurrentTarget.transform.position, unit.transform.position) < unit.attackBehaviour.range;
+        return Vector3.Distance(target.transform.position, unit.transform.position) < range;
     }
 }

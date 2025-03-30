@@ -5,7 +5,6 @@ public class Unit : MonoBehaviour
 {
     public IUnitState CurrentState { get; set; }
     public Vector3 MoveTarget { get; set; }
-    public GameObject CurrentTarget { get;  set; }
     
     public UnitMovementBehaviourObject movementBehaviour;
     public UnitAttackBehaviourObject attackBehaviour;
@@ -16,6 +15,7 @@ public class Unit : MonoBehaviour
     {
         attackBehaviour.ResetBehaviour();
         UnitRange = GetComponentInChildren<UnitRange>();
+        UnitRange.transform.localScale = new Vector3(attackBehaviour.range * 2 / gameObject.transform.localScale.x,attackBehaviour.range * 2 / gameObject.transform.localScale.y, attackBehaviour.range * 2 / gameObject.transform.localScale.z);
     }
 
     public void SetState(IUnitState state)

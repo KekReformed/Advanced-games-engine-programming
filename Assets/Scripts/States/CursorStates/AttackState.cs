@@ -5,38 +5,37 @@ namespace States.CursorStates
 {
     public class AttackState : ICursorState
     {
-        InputAction _attackStateInput;
         
-        public void Setup()
+        public void Setup(PlayerManager manager)
         {
-            _attackStateInput = PlayerManager.Instance.Input.actions.FindAction("Enter Attack State");
-        }
-        
-        public bool CheckStateConditions()
-        {
-            return _attackStateInput.triggered;
-        }
-        
-        public void EnterState()
-        {
-            Debug.Log("Attack State Entered;");
-        }
-        
-        public void UpdateState()
-        {
-            if(!PlayerManager.Instance.CommandInput.triggered) return;
-            if(PlayerManager.Instance.MouseHit.collider.gameObject.layer != LayerMask.NameToLayer("Unit")) return;
             
-            foreach (Unit unit in PlayerManager.Instance.selectedUnits)
+        }
+        
+        public bool CheckStateConditions(PlayerManager manager)
+        {
+            return manager.HoveringOver.collider && manager.GetHoveredOver().layer == LayerMask.NameToLayer("Unit");
+        }
+        
+        public void EnterState(PlayerManager manager)
+        {
+            Debug.Log("Attack state entered");
+            PlayerCursor.Instance.image.color = Color.red;
+        }
+        
+        public virtual void UpdateState(PlayerManager manager)
+        {
+            if(!manager.HoveringOver.collider || manager.GetHoveredOver().layer != LayerMask.NameToLayer("Unit")) manager.SetState(new MovementState());
+            if(!manager.MoveInput.triggered) return;
+            
+            foreach (Unit unit in manager.selectedUnits)
             {
-                unit.CurrentTarget = PlayerManager.Instance.MouseHit.collider.gameObject;
-                unit.SetState(new UnitStates.AttackState());
+                unit.SetState(new UnitStates.AttackState(manager.HoveringOver.collider.gameObject));
             }
             
-            PlayerManager.Instance.SetState(new MovementState());
+            manager.SetState(new MovementState());
         }
 
-        public void ExitState()
+        public void ExitState(PlayerManager manager)
         {
             return;
         }

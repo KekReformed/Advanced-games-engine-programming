@@ -8,7 +8,6 @@ public class UnitRange : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         Unit otherUnit = other.GetComponent<Unit>();
         
         if (otherUnit == null) return;
@@ -21,5 +20,11 @@ public class UnitRange : MonoBehaviour
         
         if (otherUnit == null) return;
         UnitsInRange.Remove(otherUnit);
+    }
+    
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, GetComponentInParent<Unit>().attackBehaviour.range);
     }
 }

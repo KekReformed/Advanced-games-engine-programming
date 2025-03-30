@@ -2,9 +2,9 @@ using UnityEngine;
 
 public interface ICursorState
 {
-    void Setup();
-    bool CheckStateConditions();
-    void EnterState();
-    void UpdateState();
-    void ExitState();
+    void Setup(PlayerManager manager);
+    bool CheckStateConditions(PlayerManager manager);
+    void EnterState(PlayerManager manager);
+    void UpdateState(PlayerManager manager);
+    void ExitState(PlayerManager manager);
 }
