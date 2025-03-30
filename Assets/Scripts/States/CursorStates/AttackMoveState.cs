@@ -31,6 +31,8 @@ namespace States.CursorStates
                 unit.MoveTarget = manager.HoveringOver.point;
                 unit.SetState(new UnitStates.AttackMoveState());
             }
+            
+            manager.SetState(new MovementState());
         }
         
         public void ExitState(PlayerManager manager)
