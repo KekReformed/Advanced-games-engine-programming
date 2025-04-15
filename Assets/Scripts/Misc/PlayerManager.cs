@@ -16,7 +16,8 @@ public class PlayerManager : MonoBehaviour
     public RaycastHit HoveringOver { get; private set; }
     protected List<ICursorState> CursorStates { get; private set; } 
     public ICursorState CurrentState { get; private set; }
-    private ICursorState _previousState;
+    
+    ICursorState _previousState;
     
     public static PlayerManager Instance;
     
