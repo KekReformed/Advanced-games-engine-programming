@@ -302,8 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4871810b8f928644a5af8adbe402123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedUnits:
-  - {fileID: 951592411}
+  selectedUnits: []
+  playerTeam: {fileID: 11400000, guid: b55a9624e7e94ca479f895f3759ad538, type: 2}
   raycastLayerMask:
     serializedVersion: 2
     m_Bits: 243
@@ -1370,6 +1370,7 @@ MonoBehaviour:
   movementBehaviour: {fileID: 11400000, guid: e1b3f0524fd73f54286c851944ac8550, type: 2}
   attackBehaviour: {fileID: 11400000, guid: c18d87b0af4d5574d8dde361f139d12c, type: 2}
   UnitRange: {fileID: 0}
+  team: {fileID: 11400000, guid: b55a9624e7e94ca479f895f3759ad538, type: 2}
 --- !u!54 &951592412
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1781,6 +1782,7 @@ MonoBehaviour:
   movementBehaviour: {fileID: 11400000, guid: e1b3f0524fd73f54286c851944ac8550, type: 2}
   attackBehaviour: {fileID: 11400000, guid: c18d87b0af4d5574d8dde361f139d12c, type: 2}
   UnitRange: {fileID: 0}
+  team: {fileID: 0}
 --- !u!1 &1283533204
 GameObject:
   m_ObjectHideFlags: 0

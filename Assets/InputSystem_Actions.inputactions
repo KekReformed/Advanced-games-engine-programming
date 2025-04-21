@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Enter Selection State",
+                    "type": "Button",
+                    "id": "29420950-35d5-4dae-969c-cddc9503463d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -216,6 +225,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Enter AttackMove State",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "381988bc-e3de-4bdf-9a19-bb959c8c4e32",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Enter Selection State",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

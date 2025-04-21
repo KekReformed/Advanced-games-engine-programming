@@ -3,12 +3,13 @@ using UnityEngine.InputSystem;
 
 public class Unit : MonoBehaviour
 {
-    public IUnitState CurrentState { get; set; }
+    IUnitState CurrentState;
     public Vector3 MoveTarget { get; set; }
     
     public UnitMovementBehaviourObject movementBehaviour;
     public UnitAttackBehaviourObject attackBehaviour;
     public UnitRange UnitRange;
+    public Team team;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()

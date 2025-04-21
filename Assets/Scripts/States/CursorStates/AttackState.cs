@@ -13,7 +13,7 @@ namespace States.CursorStates
         
         public bool CheckStateConditions(PlayerManager manager)
         {
-            return manager.HoveringOver.collider && manager.GetHoveredOver().layer == LayerMask.NameToLayer("Unit");
+            return manager.HoveringOver.collider && manager.GetHoveredOver().layer == LayerMask.NameToLayer("Unit") && manager.selectedUnits.Count > 0;
         }
         
         public void EnterState(PlayerManager manager)

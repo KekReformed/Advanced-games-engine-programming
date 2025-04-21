@@ -27,6 +27,7 @@ namespace States.CursorStates
             foreach (Unit unit in manager.selectedUnits)
             {
                 unit.MoveTarget = manager.HoveringOver.point;
+                
                 unit.SetState(new UnitStates.MovementState());
             }
         }

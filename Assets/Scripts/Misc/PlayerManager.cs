@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerInput Input { get; private set; }
     public InputAction CommandInput { get; private set; }
     public InputAction MoveInput { get; private set; }
+    public Team playerTeam;
     protected Camera MainCam { get; private set; }
     public Vector2 MousePosition { get; private set; }
     public RaycastHit HoveringOver { get; private set; }
@@ -38,7 +39,11 @@ public class PlayerManager : MonoBehaviour
         Instance = this;        
         
         CursorStates = CreateInstancesOfCursorStates();
-        CurrentState = new MovementState();
+    }
+
+    protected virtual void Start()
+    {
+        SetState(new SelectionState());
     }
 
     protected void Update()
